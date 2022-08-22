@@ -5,7 +5,7 @@ class BuildBodyBack extends StatelessWidget {
   final Color color1;
   final Color color2;
 
-  BuildBodyBack({@required this.color1,@required this.color2});
+  BuildBodyBack({required this.color1,required this.color2});
 
   @override
   Widget build(BuildContext context) {

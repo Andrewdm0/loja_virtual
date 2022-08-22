@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DrawerTile extends StatelessWidget {
-  DrawerTile({this.icon, this.text, this.controller, this.page});
+  DrawerTile({required this.icon, required this.text, required this.controller, required this.page});
   final IconData icon;
   final String text;
   final PageController controller;
@@ -23,7 +23,7 @@ class DrawerTile extends StatelessWidget {
               Icon(
                 icon,
                 size: 32,
-                color: controller.page.round() == page
+                color: controller.page!.round() == page
                     ? Theme.of(context).primaryColor
                     : Colors.grey[700],
               ),
@@ -34,7 +34,7 @@ class DrawerTile extends StatelessWidget {
                 text,
                 style: TextStyle(
                   fontSize: 16,
-                  color: controller.page.round() == page
+                  color: controller.page!.round() == page
                       ? Theme.of(context).primaryColor
                       : Colors.grey[700],
                 ),

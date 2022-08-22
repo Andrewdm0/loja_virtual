@@ -1,10 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/tiles/category_tile.dart';
-import 'package:loja_virtual/widgets/body_back.dart';
 
-class ProductsTab extends StatelessWidget {
-  var lista_docs = [];
+class ProductsTab extends StatefulWidget {
+  @override
+  _ProductsTabState createState() => _ProductsTabState();
+}
+
+class _ProductsTabState extends State<ProductsTab> {
+  var listaDocs = [];
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,14 +22,14 @@ class ProductsTab extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              lista_docs = snapshot.data.docs.toList();
+              listaDocs = snapshot.data!.docs.toList();
               var dividedTiles = ListTile.divideTiles(
-                  tiles: snapshot.data.docs
+                  tiles: snapshot.data!.docs
                       .map((e) => CategoryTile(snapshot: e))
                       .toList(),
                   color: Colors.grey[500]);
               return ListView(
-                children: dividedTiles,
+                children: dividedTiles.toList(),
               );
             }
           },

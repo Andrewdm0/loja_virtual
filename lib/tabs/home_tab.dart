@@ -62,10 +62,10 @@ class HomeTab extends StatelessWidget {
                       childrenDelegate: SliverChildBuilderDelegate(
                         (context, index) => FadeInImage.memoryNetwork(
                           placeholder: kTransparentImage,
-                          image: snapshot.data.docs[index]['image'],
+                          image: snapshot.data!.docs[index]['image'],
                           fit: BoxFit.cover,
                         ),
-                        childCount: snapshot.data.docs.length,
+                        childCount: snapshot.data!.docs.length,
                       ),
                     ),
                   );
