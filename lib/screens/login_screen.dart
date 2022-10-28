@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -12,7 +13,10 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => SignupScreen()));
+            },
             child: Text(
               'CRIAR CONTA',
               style: TextStyle(
@@ -29,16 +33,17 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.all(16),
           children: [
             TextFormField(
-              validator: (text){
-                if(text!.isEmpty || !text.contains("@")) return "E-mail inválido";
+              validator: (text) {
+                if (text!.isEmpty || !text.contains("@"))
+                  return "E-mail inválido";
               },
               decoration: InputDecoration(hintText: "E-mail"),
               keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(height: 16.0),
             TextFormField(
-              validator: (text){
-                if(text!.isEmpty || text.length < 6) return "Senha inválida";
+              validator: (text) {
+                if (text!.isEmpty || text.length < 6) return "Senha inválida";
               },
               decoration: InputDecoration(hintText: "Senha"),
               obscureText: true,
@@ -60,9 +65,7 @@ class LoginScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     primary: Theme.of(context).primaryColor),
                 onPressed: () {
-                  if(_formKey.currentState!.validate()){
-
-                  }
+                  if (_formKey.currentState!.validate()) {}
                 },
                 child: Text(
                   "Entrar",
